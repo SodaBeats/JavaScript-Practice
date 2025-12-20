@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self Practice</title>
+</head>
+<body>
+    <input type="text" id="taskInput" placeholder="Enter a task">
+    <button id="btnAddTask">Add Task</button>
+    <ul class="taskShow"></ul>
+
+    <script>
+        let tasks = [];
+        /*const btnAddTask = document.querySelector('#btnAddTask')
+            .addEventListener('click', () => {
+            addTask();
+        })*/
+
+        const btnAddTask = document.querySelector('#btnAddTask');
+        btnAddTask.addEventListener('click', () => addTask());
+
+        function addTask(){
+            const taskInput = document.querySelector('#taskInput');
+            const task = taskInput.value;
+            tasks.push(task);
+            taskInput.value = "";
+            showTasks();
+        }
+
+        function showTasks(){
+            const unorderedList = document.querySelector('.taskShow');
+            unorderedList.innerHTML = "";
+
+            tasks.forEach(task => {
+                const li = document.createElement('li');
+                const deleteBtn = document.createElement('button');
+                deleteBtn.textContent = 'Delete';
+                li.textContent = task;
+                li.appendChild(deleteBtn);
+                unorderedList.appendChild(li);
+
+                deleteBtn.addEventListener('click', function(){
+                    const index = tasks.indexOf(task);
+                    if(index > -1){
+                        tasks.splice(index, 1);
+                        showTasks();
+                    }
+                });
+            });
+        }
+
+
+    </script>
+
+</body>
+</html>

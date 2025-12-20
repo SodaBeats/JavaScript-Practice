@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hot or Cold</title>
+</head>
+<body>
+    <input type="text" id="js-guessInput" placeholder="Enter Guess 1 - 100">
+    <button id="js-submitGuess" onclick = "playGame()">Submit Guess</button>
+    <p id="js-informant"></p>
+
+    <script>
+        let luckyNumber = Math.floor(Math.random() * (100 - 1 + 1)+1);
+        console.log(luckyNumber);
+
+        function playGame(){
+            const playerGuess = document.querySelector('#js-guessInput').value;
+            const inform = document.querySelector('#js-informant');
+
+            if(playerGuess == luckyNumber){
+                inform.textContent = `You are right! The number was ${luckyNumber}`;
+            }else if (playerGuess > luckyNumber){
+                inform.textContent = "Too High!";
+            }else{
+                inform.textContent = "Too Low!";
+            }
+        }
+
+    </script>
+</body>
+</html>

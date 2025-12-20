@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        const myArr = [10, 20, 30, 40];
+        const myArr2 = [2, 2, 2, 2];
+        console.log(addArrays(myArr, myArr2));
+
+        //This shows the last element in the array
+        function lastElement(){
+            lastElem = myArr.pop();
+            console.log(lastElem);
+        }
+
+
+        //This swaps the first element and last element
+        function swaperoo(){
+            const firstThing = myArr.shift();
+            const lastThing = myArr.pop();
+            myArr.push(firstThing);
+            myArr.unshift(lastThing);
+            console.log(myArr);
+        }
+
+        //This one accepts an array and
+        //adds +1 to every element.
+        function addOneArr(arr){
+            let newArr = [];
+            for(let i = 0; i<arr.length; i++){
+                newArr[i] = arr[i]+1;
+            }
+            return newArr;
+        }
+
+        //add each element with given number
+        function addNum(arr, num){
+            let newArr = [];
+            for(let i=0; i<arr.length; i++){
+                newArr[i] = arr[i]+num;
+            }
+            return newArr;
+        }
+
+        //adds two arrays together
+        function addArrays(arr1, arr2){
+            let newArr = [];
+            for(let i=0; i<arr1.length; i++){
+                newArr[i]=arr1[i]+arr2[i];
+            }
+            return newArr;
+        }
+
+        
+    </script>
+</body>
+</html>

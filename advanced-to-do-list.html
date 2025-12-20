@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To DO List(Array of Objects)</title>
+</head>
+<body>
+    <input type="text" name="" id="taskInput" placeholder="Enter a task">
+    <button id="btnAddTask">Add Task</button>
+    <table id="taskTable" border="1" style="width: 400px; text-align: center;">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Activity</th>
+                <th>Done</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        let tasks = [];
+        document.getElementById('btnAddTask').addEventListener('click', () => {
+            addTask();
+        });
+
+        function addTask(){
+            const taskInput = document.getElementById('taskInput');
+            const taskText = taskInput.value.trim();
+            if(taskText === "") return;
+            const task = {
+                id: tasks.length + 1,
+                item: taskText
+            };
+            tasks.push(task);
+            renderTasks();
+        }
+
+        function renderTasks(){
+            const taskTableBody = document.getElementById('taskTable').getElementsByTagName('tbody')[0];
+            taskTableBody.innerHTML = '';
+            tasks.forEach(task => {
+                const row = taskTableBody.insertRow();
+                const cellId = row.insertCell(0);
+                const cellItem = row.insertCell(1);
+                const cellAction = row.insertCell(2);
+
+                cellId.textContent = task.id;
+                cellItem.textContent = task.item;
+
+                const deleteBtn = document.createElement('button');
+                deleteBtn.textContent = 'Delete';
+                deleteBtn.className = 'deleteBtn';
+                cellAction.appendChild(deleteBtn);
+
+                deleteBtn.addEventListener('click', function(){
+                    deleteTask(task.id);
+                });
+            });
+        }
+        function deleteTask(id){
+            tasks = tasks.filter(task => task.id !== id);
+            renderTasks();
+        }
+    </script>
+</body>
+</html>

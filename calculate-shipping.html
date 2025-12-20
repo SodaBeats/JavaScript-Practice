@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate Shipping</title>
+</head>
+<body>
+    <p>Enter Order Amount: </p>
+    <input type="text" id="orderAmount" onkeydown="enterKey(event)" required>
+    <button onclick="calculateShipping()">Calculate Shipping</button>
+    <p class="toBePaid"></p>
+
+
+    <script>
+        function enterKey(event){
+            if (event.key === 'Enter'){
+                calculateShipping();
+            }
+        }
+
+        function calculateShipping(){
+            let orderAmount = Number(document.querySelector('#orderAmount').value);
+            const toBePaid = document.querySelector('.toBePaid');
+            let total = 0;
+
+            if (orderAmount<40){
+                total = orderAmount+10;
+                toBePaid.textContent = `total: $${total}`;
+            }
+            else{
+                toBePaid.textContent = `total: $${orderAmount}`;
+            }
+        }
+        try {
+            
+        } catch (error) {
+            console.log(error.message);
+        }
+    </script>
+</body>
+</html>

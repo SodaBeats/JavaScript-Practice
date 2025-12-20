@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" onkeyup="demo()" placeholder="Type something...">
+    <p class="pageTxt"></p>
+
+    <script>
+        const inputField = document.querySelector('input');
+        const pageTxt = document.querySelector('.pageTxt');
+
+        demo = () => {
+            pageTxt.textContent = inputField.value;
+        }
+
+        button.addEventListener('click', (event) => {
+            console.log(event.target);
+        });
+    </script>
+</body>
+</html>
