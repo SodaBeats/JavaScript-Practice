@@ -56,6 +56,23 @@
             return newArr;
         }
 
+        //argument is a function scoped ARGUMENTS array like object. 
+        //Anything passed as argument in the function can be accessed
+        //from the ARGUMENTS object inside the function
+        function sumAllNums(){
+            console.log(arguments);
+            let sum = 0;
+            for (const arg of arguments){
+                sum+=arg;
+            }
+            return sum;
+        }
+
+        addAllNum = (...arg) => {
+            console.log(arg);
+        }
+        addAllNum(1,2,3,4,5,6);
+
         
     </script>
 </body>
