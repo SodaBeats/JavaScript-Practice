@@ -13,10 +13,6 @@
 
     <script>
         let tasks = [];
-        /*const btnAddTask = document.querySelector('#btnAddTask')
-            .addEventListener('click', () => {
-            addTask();
-        })*/
 
         const btnAddTask = document.querySelector('#btnAddTask');
         btnAddTask.addEventListener('click', () => addTask());
@@ -39,7 +35,7 @@
             tasks.forEach(task => {
                 const {name} = task;
                 const {due} = task;
-                
+
                 const p = document.createElement('p');
                 const deleteBtn = document.createElement('button');
                 deleteBtn.textContent = 'Delete';
