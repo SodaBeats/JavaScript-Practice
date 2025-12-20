@@ -68,11 +68,36 @@
             return sum;
         }
 
+        //Arrow functions do not have an ARGUMENTS object
+        //instead you need to use a spread operator followed by any parameter name
         addAllNum = (...arg) => {
-            console.log(arg);
+            let sum = 0;
+            for (const num of arg){
+                sum+=num;
+            }
+            return sum;
         }
-        addAllNum(1,2,3,4,5,6);
+        console.log(addAllNum(1,2,3,4,5,6));
 
+        //Anonymous functions store their value inside your declared variable
+        const anonymousFunc = function() {
+            console.log(
+                'I am an anonymous function and my value is stored in anonymousFun'
+            )
+        }
+
+        //Expression function is when you assign the anonymous function into a variable
+        //To return a value from the function, we should call the variable
+        const square = function(n){
+            return n*n;
+        }
+        console.log(square(2)); //4
+
+        //Self Invoking Functions
+        const squared = function(n){
+            return n*n;
+        }(10)
+        console.log(squared);
         
     </script>
 </body>
