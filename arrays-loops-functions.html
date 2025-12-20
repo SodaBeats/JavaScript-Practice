@@ -98,6 +98,19 @@
             return n*n;
         }(10)
         console.log(squared);
+
+
+        //FUNCTION WITH DEFAULT PARAMETERS
+        //sometimes we pass default values to parameters
+        //when invoking a function, if no argument is passed
+        //default value will be used
+
+        function greet(name = 'User'){
+            let message = `Hello, ${name}.`;
+            return message;
+        }
+        console.log(greet('Beni')); //Hello, Beni.
+        console.log(greet()); //Hello, User.
         
     </script>
 </body>

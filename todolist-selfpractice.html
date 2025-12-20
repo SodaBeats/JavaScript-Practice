@@ -6,9 +6,10 @@
     <title>Self Practice</title>
 </head>
 <body>
-    <input type="text" id="taskInput" placeholder="Enter a task">
+    <input type="text" id="task-input" placeholder="Enter a task">
+    <input type="date" id="due-date">
     <button id="btnAddTask">Add Task</button>
-    <ul class="taskShow"></ul>
+    <div class="render-tasks"></div>
 
     <script>
         let tasks = [];
@@ -21,25 +22,30 @@
         btnAddTask.addEventListener('click', () => addTask());
 
         function addTask(){
-            const taskInput = document.querySelector('#taskInput');
-            const task = taskInput.value;
+            const taskInput = document.querySelector('#task-input');
+            const taskDue = document.querySelector('#due-date');
+            const task = {
+                name: taskInput.value,
+                due: taskDue.value
+            };
             tasks.push(task);
-            taskInput.value = "";
             showTasks();
         }
 
         function showTasks(){
-            const unorderedList = document.querySelector('.taskShow');
+            const unorderedList = document.querySelector('.render-tasks');
             unorderedList.innerHTML = "";
 
             tasks.forEach(task => {
-                const li = document.createElement('li');
+                const {name} = task;
+                const {due} = task;
+                
+                const p = document.createElement('p');
                 const deleteBtn = document.createElement('button');
                 deleteBtn.textContent = 'Delete';
-                li.textContent = task;
-                li.appendChild(deleteBtn);
-                unorderedList.appendChild(li);
-
+                p.textContent = `${name}`+" "+` ${due}`+" ";
+                p.appendChild(deleteBtn);
+                unorderedList.appendChild(p);
                 deleteBtn.addEventListener('click', function(){
                     const index = tasks.indexOf(task);
                     if(index > -1){
