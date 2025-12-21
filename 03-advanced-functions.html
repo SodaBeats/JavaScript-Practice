@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Functions</title>
+</head>
+<body>
+    <script>
+        /*
+        //METHODS: FUNCTIONS INSIDE AN OBJECT
+        const human = {
+            name: 'Vince',
+            age: '27',
+            talents: 'none',
+            dance: function(){
+                console.log(`He's dancing. Trust me.`);
+            }
+        }
+        human.dance();//He's dancing. Trust me.
+
+        //YOU CAN ALSO USE A FUNCTION AS A PARAMETER
+        //THIS IS CALLED A "CALLBACK" FUNCTION
+
+        function run(param){
+            param(); //this runs the function inside the paramter
+        }
+
+        //This stores the function into the parameter
+        run(function(){
+            console.log('Howdy');
+        })
+
+        //ANOTHER EXAMPLE
+        function squared(n){
+            return n*n;
+        }
+        function ran(param){
+            console.log(param);
+        }
+        ran(squared(2));
+        */
+
+        //SET TIMEOUT RUNS THE FUNCTION AFTER A SET TIME (MILLISECONDS)
+        //IT ACCEPTS TWO PARAMETERS
+        //FIRST IS THE FUNCTION TO RUN
+        //SECOND IS THE DELAY
+
+        function christmasCarol(){
+            console.log("Merry Christmas!");
+        }
+
+        setTimeout(christmasCarol, 5000);//This will run after 5 seconds
+
+        //ASYNCHRONOUS CODE
+        //Won't wait for the line of code to finish before going
+        //to the next line
+        //so set timeout will set up the timer, and then run
+        //the next line of code
+
+        setTimeout(()=>{console.log('Merry Christmas')}, 3000);
+        console.log("This line will output first");
+
+        //SET INTERVAL
+        /*setInterval(function(){
+            console.log("This code will run every specified seconds")
+        }, 3000);//This will run every 3 seconds, probably infinite*/
+
+
+
+
+
+    </script>
+</body>
+</html>
