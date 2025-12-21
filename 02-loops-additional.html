@@ -9,6 +9,35 @@
 
     <script>
 
+        //FOR EACH
+        //IT IS A METHOD OF THE FUNCTION
+        const activities=['Make dishes',
+                'Wash Laundry',
+                'Eat food'];
+        //it will loop through each item in the array
+        //it will put each item into the ACTIVITY parameter
+        //and the parameter will be used in the function
+        activities.forEach(activity =>{
+            //console.log(activity);
+        })
+
+        //you can also add another parameter for index
+        activities.forEach((activity, index) => {
+            //console.log(index);
+            //console.log(activity);
+        })
+
+        //a for each loop doesn't have CONTINUE
+        //but it can skip using RETURN
+        activities.forEach((activity, index) => {
+            if(activity === 'Wash Laundry'){
+                return;
+            }
+            console.log(index);
+            console.log(activity);
+        })//WASH LAUNDRY is skipped
+
+
         //BREAK exits a loop early
         for (let i=0; i<10; i++){
             //console.log(i);
@@ -40,19 +69,19 @@
 
         let x=1;
         while(x<=10){
-            console.log(x);
+            //console.log(x);
             x++;
         }
 
         for(let i=1; i<=20; i++){
             if(i%3===0 && i%5===0){
-                console.log(`fizzbuzz`);
+                //console.log(`fizzbuzz`);
             }else if(i%5===0){
-                console.log(`buzz`);
+                //console.log(`buzz`);
             }else if(i%3===0){
-                console.log(`fizz`);
+               // console.log(`fizz`);
             }else{
-                console.log(i);
+                //console.log(i);
             }
         }
 

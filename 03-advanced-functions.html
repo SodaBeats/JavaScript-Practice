@@ -62,9 +62,28 @@
         console.log("This line will output first");
 
         //SET INTERVAL
-        /*setInterval(function(){
+        /*
+        setInterval(function(){
             console.log("This code will run every specified seconds")
-        }, 3000);//This will run every 3 seconds, probably infinite*/
+        }, 3000);//This will run every 3 seconds, probably infinite
+        */
+
+        //SET INTERVAL ACTUALLY RETURNS AN ID
+        //To STOP AN INTERVAL YOU NEED TO CLEAR THE INTERVAL ID
+        let intervalId;
+        let isAutoSinging = true;
+
+        function autoPlay(){
+            if(!isAutoSinging){
+                intervalId = setInterval(function(){
+                    console.log("Unli Karaoke!");
+                },3000);
+                isAutoSinging = true;
+            }else{
+                clearInterval(intervalId); //function to clear
+                isAutoSinging = false;
+            }
+        }
 
 
 
