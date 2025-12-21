@@ -8,6 +8,7 @@
 <body>
     
     <script>
+
         const myArr = [10, 20, 30, 40];
         const myArr2 = [2, 2, 2, 2];
         console.log(addArrays(myArr, myArr2));
@@ -17,6 +18,22 @@
             lastElem = myArr.pop();
             console.log(lastElem);
         }
+
+        //ARRAYS ARE REFERENCES
+        //WHICH MEANS THE ARRAY VARIABLE IS ONLY POINTING TO
+        //A SPOT IN THE MEMORY CONTAINING THE ARRAY
+        const fruits = ['apple','melon', 'grapes'];
+        const fruits2 = fruits; //They are pointing at the same array reference
+        fruits2.push('banana');
+        console.log(fruits); //fruits also contain banana even tho we only added it to fruits2
+
+        //SLICE() COPIES ANOTHER ARRAY'S VALUES, NOT JUST REFERENCE
+        //THIS WOULD BE SEPARATE
+        const numArr = [1,2,3,4];
+        const numArr2 = numArr.slice(); //makes another array with different reference
+        numArr2.push(99);
+        console.log(numArr); //1, 2, 3, 4
+        console.log(numArr2); //1, 2, 3, 4, 99
 
 
         //This swaps the first element and last element
