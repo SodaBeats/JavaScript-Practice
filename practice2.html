@@ -32,18 +32,18 @@
         }
         console.log(addNum ([10,20,30,40], 2));
 
+        //Only remove the first two eggs
+        //FILTER decides what to keep or discard
+        //NOT what to return
         const removeEgg = (arr) =>{
+            let count=0;
             const newArr = arr.filter((value, index)=>{
-                let count = 0;
-                if(value==="egg"){
+                if(value==="egg" && count<2){
                     count++;
+                    return false;
                 }
-                if(count>2){
-                    return value;
-                }else if(value!="egg" && count<2){
-                    return value;
-                }
-            })
+                return true;
+            });
             return newArr;
         }
 
