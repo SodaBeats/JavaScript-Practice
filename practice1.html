@@ -6,11 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    <button class="js-btn">Add Item</button>
-    <p class="notif"></p>
+    <button class="js-btn">Click</button>
 
     <script>
-        const addItemBtn = document.querySelector('.js-btn');
+        /*const addItemBtn = document.querySelector('.js-btn');
         addItemBtn.addEventListener('click', addItem);
 
         let timeOutId;
@@ -24,7 +23,117 @@
             timeOutId = setTimeout(()=>{
                 notification.textContent = "";
             }, 3000);
+        }*/
+
+        
+        /*function messageShow() {
+            const siteTitle = document.querySelector('title');
+            const addBtn = document.querySelector('.js-btn');
+            const removeBtn = document.querySelector('.js-rmv-btn');
+            let msgs = 2;
+
+            function updateRemoveBtn() {
+                msgs===0 ? removeBtn.disabled = true : removeBtn.disabled = false;
+            }
+
+            addBtn.addEventListener('click', ()=>{
+                msgs++;
+                updateRemoveBtn();
+            })
+            removeBtn.addEventListener('click',()=>{
+                msgs--;
+                updateRemoveBtn();
+            })
+            let showMessage = false;
+
+            setInterval(() => {
+                if (msgs===0){
+                    siteTitle.textContent = "Document";
+                }else{
+                    siteTitle.textContent = showMessage ? "Document":`${msgs} New Messages!`;
+                    showMessage = !showMessage;
+                }
+            }, 1000);
+        }messageShow();*/
+    
+        //FILTER
+        //creates a new array[]
+        //if true, put value in new array
+        //if false, NOT put value in new array
+        [1,-3, 2, -1].filter((value,index)=>{
+            if(value>=0){
+                return true;
+            }
+            else{
+                return false;
+            }
+        });
+
+        //shorthand
+        [1,-3, 2, -1].filter((value,index)=>{
+            return value>=0;
+        });
+
+        /*const myArr = [10,12,13,14,15];
+        const newArr = myArr.filter((value, index)=>{
+            return value%2==0;
+        });
+        console.log(myArr);//10 12 13 14 15
+        console.log(newArr);//10 12 14
+        */
+
+
+        //MAP
+        //creates a new array[]
+        //whatever we return will be
+        //added to the new array
+
+        //this will add 10 to each item
+        const myArr = [21, 1, 3, 14];
+        const newArr = myArr.map((value, index)=>{
+            return value+10;
+        });
+        console.log(myArr); //21, 1, 3, 14
+        console.log(newArr); //31, 11, 13, 24
+
+        //CLOSURE
+        //if a function has access to a value
+        //it will always have access to that value
+        //value gets packaged together (enclosed)
+        //with the function
+
+        function makeCounter() {
+            let count = 0;  // This variable is "trapped" in the closure
+            
+            return function() {
+                count++;
+                return count;
+            };
         }
+
+        const counter = makeCounter();
+        console.log(counter()); // 1
+        console.log(counter()); // 2
+        console.log(counter()); // 3
+
+        const counter1 = makeCounter();
+        const counter2 = makeCounter();
+
+        console.log(counter1()); // 1
+        console.log(counter1()); // 2
+        console.log(counter2()); // 1  ← Separate count!
+
+    function setupButton(buttonName) {
+        const button = document.querySelector('.btn');
+        
+        button.addEventListener('click', () => {
+            console.log(`${buttonName} was clicked`); // Remembers buttonName
+        });
+    }
+
+    setupButton('Submit');
+
+
     </script>
 </body>
 </html>
