@@ -6,60 +6,16 @@
     <title>Document</title>
 </head>
 <body>
-    <button class="choice" onclick="playGame(event)" value="rock">Rock</button>
-    <button class="choice" onclick="playGame(event)" value="paper">Paper</button>
-    <button class="choice" onclick="playGame(event)" value="scissors">Scissors</button>
+    <button class="choices js-rock" value="rock">Rock</button>
+    <button class="choices js-paper" value="paper">Paper</button>
+    <button class="choices js-scissors" value="scissors">Scissors</button>
 
     <p class="js-result"></p>
     <button class="btnReset" onclick="resetScore()">Reset Score</button>
+    <button class="auto-play">Auto Play</button>
     <p class="js-score"></p>
+    <p class="js-reset-confirmation"></p>
 
-
-
-    <script>
-
-    const score = {
-        wins: 0,
-        losses: 0,
-        ties: 0
-    }
-    
-    function playGame(event){
-        const playerChoice = event.target.value;
-        function getComputerChoice(){
-            const choices = ['rock', 'paper', 'scissors'];
-            return choices[Math.floor(Math.random()*choices.length)];
-        }
-        const computerChoice = getComputerChoice();
-
-        const scoreDisplay = document.querySelector('.js-score');
-
-        if (playerChoice === computerChoice){
-            score.ties++;
-            document.querySelector('.js-result').textContent = `You chose ${playerChoice}. Computer chose ${computerChoice}. It's a tie!`;
-        }
-        else if(playerChoice === 'rock' && computerChoice === 'scissors' ||
-                playerChoice === 'paper' && computerChoice === 'rock' ||
-                playerChoice === 'scissors' && computerChoice === 'paper'){
-            score.wins++;
-            document.querySelector('.js-result').textContent = `You chose ${playerChoice}. Computer chose ${computerChoice}. You win!`;
-        }
-        else {
-            score.losses++;
-            document.querySelector('.js-result').textContent = `You chose ${playerChoice}. Computer chose ${computerChoice}. You lose!`;
-        }
-
-        scoreDisplay.textContent = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
-
-    }
-    function resetScore(){
-        score.wins = 0;
-        score.losses = 0;
-        score.ties = 0;
-        document.querySelector('.js-score').textContent = '';
-        document.querySelector('.js-result').textContent = '';
-    }
-
-    </script>
+    <script src="js/rock-paper-scissors.js"></script>
 </body>
 </html>

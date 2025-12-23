@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function addNum(arr, num){
+            return arr.map((value, index) =>{
+                return value+num;
+            });
+        }
+        console.log(addNum([10,20,30], 10));
+
+        function removeEgg(arr){
+            return arr.filter((value)=>{
+                if(value!=="egg"){
+                    return true;
+                }else{
+                    return false;
+                }
+            });
+        }
+        console.log(removeEgg(["egg", "ham", "chicken","egg"]));
+
+        function removeTwoEggs(arr){
+            let egg = 0;
+            return arr.filter((value)=>{
+                if (value==="egg" && egg<2){
+                    egg++;
+                    return false;
+                }else{
+                    return true;
+                }
+            })
+        }
+        console.log(removeTwoEggs(["egg","ham","egg","chicken","pork","egg","burger"]));
+    </script>
+</body>
+</html>
